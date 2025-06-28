@@ -84,3 +84,47 @@
 .highlight:hover {
   text-decoration: underline;
 }
+
+
+@media (max-width: 1024px) {
+  .signup-inner {
+    width: 50%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .signup-inner {
+    width: 90%;
+    padding: 1.25rem;
+    border-width: 1px;
+  }
+
+  .signup-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .name-fields {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}

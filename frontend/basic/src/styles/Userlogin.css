@@ -89,3 +89,43 @@
 .captain-button:hover {
   opacity: 0.95;
 }
+
+
+@media (max-width: 1024px) {
+  .userlogin-container .container2 {
+    width: 50%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .userlogin-container {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .userlogin-container .container2 {
+    width: 90%;
+    padding: 1.25rem;
+    border-width: 1px;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .input {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .login-button,
+  .captain-button {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .container2 h2 {
+    font-size: 1.25rem;
+  }
+}

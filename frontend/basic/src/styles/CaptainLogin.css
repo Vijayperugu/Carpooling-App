@@ -70,3 +70,37 @@
   margin-bottom: 1.25rem;
   text-decoration: none;
 }
+
+@media (max-width: 1024px) {
+  .captain-container1 {
+    width: 50%;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .captain-container {
+    padding: 1rem;
+  }
+
+  .captain-container1 {
+    width: 90%;
+    padding: 20px;
+    border-width: 1px;
+  }
+
+  .input-box,
+  .login-btn,
+  .switch-user-btn {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .form-title {
+    font-size: 1rem;
+  }
+
+  .switch-user-btn {
+    margin-bottom: 0.5rem;
+  }
+}
