@@ -113,3 +113,71 @@
 .confirm-ride-popup .cancel-btn:hover {
   background-color: #b91c1c;
 }
+
+
+@media (max-width: 768px) {
+  .confirm-ride-popup {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .confirm-ride-popup .close-button {
+    font-size: 24px;
+    top: 8px;
+    right: 12px;
+  }
+
+  .confirm-ride-popup .popup-title {
+    font-size: 20px;
+  }
+
+  .confirm-ride-popup .user-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .confirm-ride-popup .user-info {
+    gap: 10px;
+  }
+
+  .confirm-ride-popup .user-info img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .confirm-ride-popup .user-name {
+    font-size: 16px;
+  }
+
+  .confirm-ride-popup .distance {
+    font-size: 14px;
+  }
+
+  .confirm-ride-popup .ride-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 0;
+  }
+
+  .confirm-ride-popup .ride-label {
+    font-size: 15px;
+  }
+
+  .confirm-ride-popup .ride-value {
+    font-size: 13px;
+  }
+
+  .confirm-ride-popup .otp-input {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .confirm-ride-popup .confirm-btn,
+  .confirm-ride-popup .cancel-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

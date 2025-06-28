@@ -71,3 +71,56 @@
   font-size: 14px;
   color: #666;
 }
+
+@media (max-width: 1024px) {
+  .stats-panel {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .stat-box h5 {
+    font-size: 16px;
+  }
+
+  .stat-box p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .captain-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .captain-info {
+    gap: 10px;
+  }
+
+  .captain-earnings {
+    text-align: left;
+  }
+
+  .stats-panel {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .stat-box {
+    text-align: left;
+  }
+
+  .stat-box i {
+    font-size: 24px;
+  }
+
+  .stat-box h5 {
+    font-size: 16px;
+  }
+
+  .stat-box p {
+    font-size: 13px;
+  }
+}

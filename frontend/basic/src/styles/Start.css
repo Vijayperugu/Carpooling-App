@@ -46,3 +46,38 @@
 .start-button:hover {
   opacity: 0.9;
 }
+
+
+@media (max-width: 768px) {
+  .start-hero {
+    padding-top: 1rem;
+    height: auto;
+  }
+
+  .start-hero1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .start-logo {
+    width: 48px;
+    margin-left: 0;
+  }
+
+  .start-bottom-box {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .start-heading {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .start-button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+    width: 100%;
+  }
+}

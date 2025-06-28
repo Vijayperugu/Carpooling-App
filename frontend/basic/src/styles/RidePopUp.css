@@ -106,3 +106,69 @@
   background-color: #e5e7eb;
   color: #374151;
 }
+
+
+@media (max-width: 768px) {
+  .ride-popup-container {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .ride-popup-container .close-button {
+    font-size: 20px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .ride-header {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .ride-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-name,
+  .distance {
+    font-size: 14px;
+  }
+
+  .ride-details {
+    margin-top: 16px;
+  }
+
+  .ride-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 0;
+  }
+
+  .ride-label {
+    font-size: 15px;
+  }
+
+  .ride-value {
+    font-size: 13px;
+  }
+
+  .ride-actions {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .accept-btn,
+  .ignore-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

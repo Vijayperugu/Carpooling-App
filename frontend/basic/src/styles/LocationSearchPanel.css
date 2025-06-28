@@ -28,3 +28,21 @@
 .suggestion-text {
   font-weight: 500;
 }
+
+
+@media (max-width: 768px) {
+  .suggestion-item {
+    gap: 0.75rem;
+    padding: 0.6rem;
+    border-radius: 0.75rem;
+  }
+
+  .icon-circle {
+    height: 1.75rem;
+    width: 2.5rem;
+  }
+
+  .suggestion-text {
+    font-size: 0.95rem;
+  }
+}

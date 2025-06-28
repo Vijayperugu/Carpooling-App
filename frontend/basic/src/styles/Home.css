@@ -67,3 +67,62 @@
   border-top: 1px solid #eee;
   background-color: #f9f9f9;
 }
+
+
+@media (max-width: 1024px) {
+  .bottom-panel {
+    width: 50%;
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .input-box,
+  .find-trip-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1rem;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .bottom-panel {
+    width: 90%;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .input-box {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+  }
+
+  .find-trip-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .suggestions-panel {
+    padding: 16px 8px;
+  }
+}
