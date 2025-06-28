@@ -1,0 +1,73 @@
+.captain-details-container {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.captain-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.captain-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.captain-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.captain-name {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.captain-earnings {
+  text-align: right;
+}
+
+.captain-earnings h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.captain-earnings p {
+  font-size: 14px;
+  color: #666;
+}
+
+.stats-panel {
+  margin-top: 20px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-box i {
+  font-size: 28px;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.stat-box h5 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.stat-box p {
+  font-size: 14px;
+  color: #666;
+}

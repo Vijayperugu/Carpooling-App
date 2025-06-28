@@ -1,0 +1,115 @@
+.confirm-ride-popup {
+  background-color: #fff;
+  position: relative;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.confirm-ride-popup .close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+}
+
+.confirm-ride-popup .popup-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.confirm-ride-popup .user-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border: 2px solid #facc15;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.confirm-ride-popup .user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.confirm-ride-popup .user-info img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.confirm-ride-popup .user-name {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.confirm-ride-popup .distance {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.confirm-ride-popup .ride-detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.confirm-ride-popup .ride-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.confirm-ride-popup .ride-value {
+  font-size: 14px;
+  color: #666;
+  margin-top: -4px;
+}
+
+.confirm-ride-popup .otp-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: monospace;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin-top: 16px;
+}
+
+.confirm-ride-popup .confirm-btn,
+.confirm-ride-popup .cancel-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.confirm-ride-popup .confirm-btn {
+  background-color: #16a34a;
+  color: white;
+}
+
+.confirm-ride-popup .confirm-btn:hover {
+  background-color: #15803d;
+}
+
+.confirm-ride-popup .cancel-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+.confirm-ride-popup .cancel-btn:hover {
+  background-color: #b91c1c;
+}

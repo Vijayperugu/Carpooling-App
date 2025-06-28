@@ -1,0 +1,77 @@
+.waiting-driver-container {
+  padding: 16px;
+  position: relative;
+  background-color: #fff;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.driver-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vehicle-image {
+  height: 48px;
+}
+
+.driver-details {
+  text-align: right;
+}
+
+.driver-name {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.vehicle-plate {
+  font-size: 20px;
+  font-weight: 600;
+  margin: -4px 0;
+}
+
+.vehicle-model {
+  font-size: 14px;
+  color: gray;
+}
+
+.otp {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ride-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ride-detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 14px;
+  color: #666;
+  margin-top: -4px;
+}

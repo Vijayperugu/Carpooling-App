@@ -1,0 +1,30 @@
+.suggestion-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  border: 2px solid #f9f9f9;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.suggestion-item:active {
+  border-color: #000000;
+}
+
+.icon-circle {
+  background-color: #eeeeee;
+  height: 2rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.suggestion-text {
+  font-weight: 500;
+}

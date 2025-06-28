@@ -1,0 +1,48 @@
+.start-hero {
+  height: 100vh;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+.start-hero1{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.start-logo {
+  width: 64px;
+  margin-left: 2rem;
+}
+
+.start-bottom-box {
+  background-color: white;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  border-radius: 20px;
+}
+
+.start-heading {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.start-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  margin-top: 1.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.start-button:hover {
+  opacity: 0.9;
+}
