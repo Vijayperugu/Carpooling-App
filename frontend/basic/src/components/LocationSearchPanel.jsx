@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/LocationSearchPanel.css'
 
-const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPickup, setDestination, activeField }) => {
+const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPickup, setDestination, activeField,setImage }) => {
     const Location =[
         '254 VVIT University ,Nambure ,Gunture',
         '100 Kasu Mall ,Arandalpet ,Gunture',
@@ -15,6 +15,8 @@ const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPi
             setDestination(suggestion)
         }
         setPanelOpen(false)
+        setImage(false)
+
     }
 
     return (

@@ -35,6 +35,19 @@ body {
 .right-panel {
   padding: 32px;
 }
+.car-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.car-image{
+    height: 400px;
+    width: 400px;
+    object-fit:contain;
+  
+}
 
 /* Form Section */
 .form-section {

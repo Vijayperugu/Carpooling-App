@@ -11,7 +11,7 @@ const ConfirmRide = (props) => {
         return;
       }
       const rideData = {
-        user: userId, // Replace with actual user ID
+        user: userId,
         pickup: props.pickup,
         destination: props.destination,
         fare:200,
