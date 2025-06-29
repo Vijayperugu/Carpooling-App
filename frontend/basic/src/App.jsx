@@ -8,6 +8,8 @@ import Home from './pages/Home'
 import CaptainLogin from './pages/CaptainLogin'
 import CaptainSignIn from './pages/CaptainSignIn'
 import CaptainHome from './pages/CaptainHome'
+import Riding from './pages/Riding'
+import CaptainRiding from './pages/CaptainRiding'
 const App = () => {
   return (
     <div>
@@ -17,6 +19,8 @@ const App = () => {
         <Route path='/login' element={<UserLogin />} />
         <Route path='/signup' element={<UserSignUp />} />
         <Route path='/Home' element={<Home />} />
+        <Route path='/riding' element={<Riding/>}/>
+        <Route path='/captainRiding' element={<CaptainRiding/>}/>
         <Route path='/captainLogin' element={<CaptainLogin />} />
         <Route path='/captainSignup' element={<CaptainSignIn />} />
         <Route path='/captainHome' element={<CaptainHome />} />

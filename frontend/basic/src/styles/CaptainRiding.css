@@ -1,0 +1,127 @@
+.captain-riding-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  .captainriding-home-container {
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.captainriding-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.captainriding-hero {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.captainriding-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.captainriding-details-panel {
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Ride Action Bar */
+.ride-action-bar {
+  height: 120px;
+  background-color: #facc15;
+  padding: 24px;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.swipe-up {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.swipe-up i {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+.distance-info {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.complete-btn {
+  background-color: #16a34a;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.complete-btn:hover {
+  background-color: #12893c;
+}
+
+/* Finish Ride Panel Slide Up */
+.finish-ride-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 40px 16px 24px;
+  box-sizing: border-box;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.4s ease-in-out;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.finish-ride-panel.show {
+  transform: translateY(0);
+}
+
+.finish-ride-panel.hide {
+  transform: translateY(100%);
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .captainriding-flex {
+    flex-direction: row;
+  }
+
+  .captainriding-hero {
+    width: 50%;
+    height: auto;
+  }
+
+  .captainriding-details-panel {
+    width: 50%;
+    padding: 32px;
+  }
+}
+
+}
+
