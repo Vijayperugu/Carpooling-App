@@ -1,8 +1,27 @@
 import React from 'react';
+import axios from 'axios';
+
 import '../styles/RidePopUp.css';
 
 const RidePopUp = (props) => {
   console.log(props.ride);
+
+  const handleConfirm = async () => {
+    const captainId = localStorage.getItem('captainId');
+    try{
+      const res = await axios.post("http://localhost:4000/api/rides/confirm",{
+        rideId: props.ride._id,
+        captainId
+      });
+      if(res.data.success){
+        props.setRidePopupPanel(false);
+        props.setConfirmRidePopupPanel(true);
+      }
+    }catch(error){
+      console.error("Error ",error);
+
+    }
+  }
   return (
     <div className="ride-popup-container">
       <h5
@@ -55,9 +74,7 @@ const RidePopUp = (props) => {
         <button
           className="accept-btn"
           onClick={() => {
-            props.setConfirmRidePopupPanel(true);
-            props.setRidePopupPanel(false);
-            props.onAcceptRide(); // Call the onAcceptRide function passed as a prop
+            handleConfirm();
           }}
         >
           Accept

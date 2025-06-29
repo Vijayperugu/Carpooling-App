@@ -16,6 +16,12 @@ const io = new Server(server,{
   }
 });
 
+io.on("connection", (socket) => {
+  socket.on("joinRoom", (userId) => {
+    socket.join(userId);
+  });
+});
+
 app.set("io",io);
  const port = process.env.PORT || 4000;
  connectDB();

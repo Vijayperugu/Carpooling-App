@@ -1,6 +1,6 @@
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import 'remixicon/fonts/remixicon.css';
 import '../styles/Home.css';
 import LocationSearchPanel from '../components/LocationSearchPanel';
@@ -8,6 +8,9 @@ import VehiclePanel from '../components/VehiclePanel';
 import WaitingForDriver from '../components/WaitingForDriver';
 import ConfirmRide from '../components/ConfirmRide';
 import LookingForDriver from '../components/LookingForDriver';
+import { io } from 'socket.io-client';
+ const socket = io('http://localhost:4000'); 
+
 
 const Home = () => {
   const [pickup, setPickup] = useState('');
@@ -26,7 +29,23 @@ const Home = () => {
   const findTrip = () => {
     setVehiclePanel(true);
     setPanelOpen(false);
+    setImage(false);
   };
+
+  useEffect(() => {
+  const userId = localStorage.getItem('userId');
+  if (userId) {
+    socket.emit('joinRoom', userId);
+  }
+  socket.on('rideConfirmed', (ride) => {
+    setRide(ride);
+    setVehicleFound(false);
+    setWaitingForDriver(true);
+  });
+  return () => {
+    socket.off('rideConfirmed');
+  };
+}, []);
 
   return (
     <div className="home-container">
@@ -101,6 +120,8 @@ const Home = () => {
 
           {vehiclePanel && (
             <VehiclePanel
+              pickup={pickup}
+              destination={destination}
               setConfirmRidePanel={setConfirmRidePanel}
               setVehiclePanel={setVehiclePanel}
             />

@@ -34,7 +34,7 @@ const ConfirmRidePopUp = (props) => {
 
   return (
     <div className="confirm-ride-popup">
-      <h5 className="close-button" onClick={() => props.setRidePopupPanel(false)}>
+      <h5 className="close-button" onClick={() => props.setConfirmRidePopupPanel(false)}>
         <i className="ri-arrow-down-wide-line"></i>
       </h5>
       <h3 className="popup-title">Confirm this ride to Start</h3>
@@ -42,7 +42,7 @@ const ConfirmRidePopUp = (props) => {
       <div className="user-box">
         <div className="user-info">
           <img src="https://imgs.search.brave.com/bWNFz9pFC1Ul5pZ7ql6Z9qc1cTlkBrZbXMdCTkoMqeY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvbWFuLWF2YXRh/ci1wcm9maWxlLXBp/Y3R1cmUtdmVjdG9y/LWlsbHVzdHJhdGlv/bl8yNjg4MzQtNTM4/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA" alt="User" />
-          <h2 className="user-name">vijay</h2>
+          <h2 className="user-name">{props.ride?.user?.name}</h2>
         </div>
         <h5 className="distance">2.2 KM</h5>
       </div>
@@ -52,7 +52,7 @@ const ConfirmRidePopUp = (props) => {
           <i className="ri-map-pin-user-fill"></i>
           <div>
             <h3 className="ride-label">Pickup</h3>
-            <p className="ride-value">pickUp Address</p>
+            <p className="ride-value">{props.ride?.pickup}</p>
           </div>
         </div>
         <div className="ride-detail">
@@ -65,7 +65,7 @@ const ConfirmRidePopUp = (props) => {
         <div className="ride-detail">
           <i className="ri-currency-line"></i>
           <div>
-            <h3 className="ride-label">₹200</h3>
+            <h3 className="ride-label">{props.ride?.fare}</h3>
             <p className="ride-value">Cash Cash</p>
           </div>
         </div>

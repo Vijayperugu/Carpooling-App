@@ -6,11 +6,13 @@
 
 .confirm-ride-container .close-btn {
   position: absolute;
-  top: 10px;
+  top: -35px;
   right: 10px;
-  font-size: 24px;
+  margin-left: 130px;
+  font-size: 28px;
   color:black;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .title {

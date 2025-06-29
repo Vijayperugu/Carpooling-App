@@ -76,3 +76,32 @@ export const deleteRide = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+
+export const confirmRideByCaptain = async (req, res) => {
+  try {
+    const { rideId, captainId } = req.body;
+    // Populate captain details as needed
+    const ride = await Ride.findByIdAndUpdate(
+      rideId,
+      { status: "confirmed", captain: captainId },
+      { new: true }
+    ).select('+otp').populate({
+         path: "captain",
+        select: "firstName lastName vehicleDetails",
+      }).populate("user", "name");
+
+    if (!ride) {
+      return res.status(404).json({ success: false, message: "Ride not found" });
+    }
+
+    // Emit to user via socket.io
+    req.app.get("io").to(ride.user._id.toString()).emit("rideConfirmed", ride);
+
+    res.json({ success: true, ride });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+

@@ -16,6 +16,7 @@ const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPi
         }
         setPanelOpen(false)
         setImage(false)
+        setImage(true)
 
     }
 

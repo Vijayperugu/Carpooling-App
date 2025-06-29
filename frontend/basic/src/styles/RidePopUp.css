@@ -8,11 +8,13 @@
 
 .ride-popup-container .close-button {
   position: absolute;
-  top: 1px;
-  right: 0px;
-  font-size: 24px;
-  color: #aaa;
+  top: -35px;
+  right: 10px;
+  margin-left: 130px;
+  font-size: 28px;
+  color: black;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .ride-header {
@@ -48,6 +50,7 @@
 .user-name {
   font-size: 16px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .distance {
@@ -71,6 +74,7 @@
 .ride-label {
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .ride-value {
@@ -107,7 +111,6 @@
   color: #374151;
 }
 
-
 @media (max-width: 768px) {
   .ride-popup-container {
     padding: 16px;
@@ -116,7 +119,7 @@
 
   .ride-popup-container .close-button {
     font-size: 20px;
-    top: 8px;
+    top: -30px;
     right: 8px;
   }
 

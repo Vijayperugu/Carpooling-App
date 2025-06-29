@@ -5,7 +5,8 @@ import {
   getRideById,
   updateRide,
   deleteRide,
-  startRide
+  startRide,
+  confirmRideByCaptain
 } from "../controllers/rideControllers.js";
 
 const router = express.Router();
@@ -15,6 +16,6 @@ router.get("/", getAllRides);           // Get all rides
 router.get("/:id", getRideById);        // Get ride by ID
 router.put("/:id", updateRide);         // Update ride
 router.delete("/:id", deleteRide); 
-router.post('/start-ride', startRide);     // Delete ride
-
+router.post('/start-ride', startRide); 
+router.post("/confirm", confirmRideByCaptain); 
 export default router;
