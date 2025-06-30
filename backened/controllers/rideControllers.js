@@ -17,7 +17,10 @@ export const createRide = async (req, res) => {
 export const startRide = async (req, res) => {
   const { rideId, otp } = req.body;
   try {
-    const ride = await Ride.findById(rideId).select('+otp').populate("user", "name").populate("captain");
+    const ride = await Ride.findById(rideId).select('+otp').populate("user", "name").populate({
+      path:"captain",
+      select:"firstName lastName vehicleDetails",
+    });
     if (!ride) return res.status(404).json({ success: false, message: "Ride not found" });
     if (ride.otp !== otp) return res.json({ success: false, message: "Invalid OTP" });
 

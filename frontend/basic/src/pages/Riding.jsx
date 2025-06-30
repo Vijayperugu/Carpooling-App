@@ -1,21 +1,24 @@
 import React from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation} from 'react-router-dom'
 import '../styles/Riding.css'
 
 const Riding = () => {
   const location = useLocation()
   const { ride } = location.state || {}
-  const navigate = useNavigate()
+
+  console.log(ride);
+
+
 
   // Extract captain and vehicle info safely
   const captain = ride.captain || {};
   const captainName = (captain.firstName && captain.lastName)
     ? `${captain.firstName} ${captain.lastName}`
     : (captain.name || "Captain");
-  const vehicleNumber = captain.vehicleDetails?.plate || captain.vehicleNumber || "N/A";
-  const vehicleModel = captain.vehicleDetails?.model || "Maruti Suzuki Alto";
+  const vehicleNumber = ride.captain.vehicleDetails?.vehiclePlate;
+  const vehicleModel = ride.captain.vehicleDetails?.vehicleType;
   const dropAddress = ride.destination || "Unknown";
-  const fare = ride.fare || "0.00";
+  const fare = ride.fare || "200";
 
   return (
     <div className="riding-wrapper">
