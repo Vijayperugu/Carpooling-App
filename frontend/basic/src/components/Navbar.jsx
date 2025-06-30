@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
+  const navigate = useNavigate();
+  const [login, setLogin] = useState(localStorage.getItem("userId") || localStorage.getItem("captainId") && true);
 
   const handleMobileMenuClick = () => {
     setMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+    // setLogin(false)
+
   };
 
   return (
@@ -28,23 +26,20 @@ const Navbar = () => {
           <div className="main-nav">
             <div className="logo">
               <h3>Car Polling</h3>
-              {isMobile && (
-                <button className="burger-icon" onClick={handleMobileMenuClick}>
-                  <FiMenu />
-                </button>
-              )}
+              <button className="burger-icon" onClick={handleMobileMenuClick}>
+                <FiMenu />
+              </button>
             </div>
-            <div
-              className="nav-menu"
-              style={{
-                display: isMobile ? (mobileMenuOpen ? "flex" : "none") : "flex",
-              }}
-            >
+
+            <div className={`nav-menu ${mobileMenuOpen ? "open" : ""}`}>
               <ul>
                 <li>About us</li>
                 <li>Services</li>
                 <li>Contact us</li>
               </ul>
+              {login ? null : <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>}
             </div>
           </div>
         </div>
