@@ -4,7 +4,6 @@ import {
   getAllRides,
   getRideById,
   updateRide,
-  deleteRide,
   startRide,
   confirmRideByCaptain,
   setRideToRiding,
@@ -17,10 +16,10 @@ router.post("/", createRide);
 router.get("/", getAllRides);         
 router.get("/:id", getRideById);        
 router.put("/:id", updateRide);         
-router.delete("/:id", deleteRide); 
+// router.delete("/:id", deleteRide); 
 router.post('/start-ride', startRide); 
 router.post("/confirm", confirmRideByCaptain); 
 router.post('/set-riding',setRideToRiding);
-router.post('/set-completed',setRideToCompleted);
+router.post('/complete-ride',setRideToCompleted);
 
 export default router;

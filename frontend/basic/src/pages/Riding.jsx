@@ -1,22 +1,34 @@
-import React from 'react'
-import { Link, useLocation} from 'react-router-dom'
-import '../styles/Riding.css'
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../styles/Riding.css';
+import { FiCheck } from 'react-icons/fi'; // ✅ Import tick icon
 
 const Riding = () => {
-  const location = useLocation()
-  const { ride } = location.state || {}
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  console.log(ride);
+  const [paymentDone, setPaymentDone] = useState(false); // ✅ Track payment
 
+  const { ride } = location.state || {};
 
+  if (!ride) {
+    return (
+      <div className="riding-wrapper">
+        <div className="riding-container">
+          <h2>No ride data available.</h2>
+          <button onClick={() => navigate('/home')}>Go Home</button>
+        </div>
+      </div>
+    );
+  }
 
-  // Extract captain and vehicle info safely
   const captain = ride.captain || {};
+  const vehicleDetails = captain.vehicleDetails || {};
   const captainName = (captain.firstName && captain.lastName)
     ? `${captain.firstName} ${captain.lastName}`
     : (captain.name || "Captain");
-  const vehicleNumber = ride.captain.vehicleDetails?.vehiclePlate;
-  const vehicleModel = ride.captain.vehicleDetails?.vehicleType;
+  const vehicleNumber = vehicleDetails.vehiclePlate || "N/A";
+  const vehicleModel = vehicleDetails.vehicleType || "N/A";
   const dropAddress = ride.destination || "Unknown";
   const fare = ride.fare || "200";
 
@@ -24,7 +36,7 @@ const Riding = () => {
     <div className="riding-wrapper">
       <div className="riding-container">
         <div className="riding-flex">
-          
+
           {/* Left Image Section */}
           <div className="riding-hero">
             <img
@@ -73,15 +85,25 @@ const Riding = () => {
                 </div>
               </div>
 
-              {/* Payment Button */}
-              <button className="payment-button">Make a Payment</button>
+              {/* Payment Buttons */}
+              <button 
+              onClick={() => setPaymentDone(true)} className="payment-button">Pay</button>
+
+              {paymentDone && (
+                <div className="ride-complete-tick">
+                  <div className="tick-circle">
+                    <FiCheck className="tick-icon" />
+                  </div>
+                  <p className="tick-text">Payment Completed</p>
+                </div>
+              )}
             </div>
           </div>
 
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Riding
+export default Riding;

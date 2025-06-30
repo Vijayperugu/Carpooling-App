@@ -6,9 +6,6 @@ const WaitingForDriver = ({ ride, waitingForDriver }) => {
   console.log(ride);
   return (
     <div className="waiting-driver-container">
-      <h5 className="close-button" onClick={() => waitingForDriver(false)}>
-        <i className="ri-arrow-down-wide-line"></i>
-      </h5>
 
       <div className="driver-info">
         <img
@@ -16,7 +13,8 @@ const WaitingForDriver = ({ ride, waitingForDriver }) => {
           src="https://swyft.pl/wp-content/uploads/2023/05/how-many-people-can-a-uberx-take.jpg"
           alt="vehicle"
         />
-        <h2 className="driver-name">
+        <div className='driver-details'>
+          <h2 className="driver-name">
           {ride?.captain
             ? `${ride.captain.firstName || ""} ${ride.captain.lastName || ""}`.trim()
             : "Captain"}
@@ -24,10 +22,11 @@ const WaitingForDriver = ({ ride, waitingForDriver }) => {
         <h4 className="vehicle-plate">
           {ride?.captain?.vehicleDetails?.vehiclePlate || "Plate N/A"}
         </h4>
-        {/* <p className="vehicle-model">
+        <p className="vehicle-model">
           {ride?.captain?.vehicleDetails?.vehicleType || "Model N/A"}
-        </p> */}
+        </p>
         <h1> {ride?.otp}</h1>
+        </div>
       </div>
 
       <div className="ride-summary">

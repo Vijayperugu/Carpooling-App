@@ -21,7 +21,7 @@ const ConfirmRidePopUp = (props) => {
       if (response.data.success) {
         // OTP verification successful, ride started
         props.setConfirmRidePopupPanel(false);
-        // props.showCaptainDetailsPanel(true);
+        navigate('/captainRiding')
       } else {
         console.error("OTP verification failed:", response.data.message);
       }

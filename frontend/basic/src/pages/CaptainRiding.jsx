@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import {useLocation} from 'react-router-dom'
-import FinishRide from '../components/FinishRide'
-import '../styles/CaptainRiding.css'
+import React, { useState } from 'react';
+import { useLocation,useNavigate } from 'react-router-dom';
+import '../styles/CaptainRiding.css';
+import { FiCheck } from 'react-icons/fi';
 
 const CaptainRiding = () => {
-  const [finishRidePanel, setFinishRidePanel] = useState(false)
-  const location = useLocation()
-  const rideData = location.state?.ride
+  const [rideCompleted, setRideCompleted] = useState(false);
+  // const location = useLocation();
+  // const rideData = location.state?.ride;
+  const navigate = useNavigate()
+  const handleClick =()=>{
+    navigate('/captainHome');
+  }
 
   return (
     <div className="captain-riding-wrapper">
@@ -21,27 +25,29 @@ const CaptainRiding = () => {
           </div>
 
           <div className="captainriding-details-panel">
-            <div
-              className="ride-action-bar"
-              onClick={() => setFinishRidePanel(true)}
-            >
-              <h5 className="swipe-up">
-                <i className="ri-arrow-up-wide-line"></i>
-              </h5>
-              <h4 className="distance-info">4 KM away</h4>
+            <div className="ride-action-bar" onClick={() => setRideCompleted(true)}>
+              <h4 className="distance-info">Ride OnGoing</h4>
               <button className="complete-btn">Complete Ride</button>
             </div>
 
-            {/* Finish Ride Panel Slide Up */}
-            <div className={`finish-ride-panel ${finishRidePanel ? 'show' : 'hide'}`}>
-              <FinishRide ride={rideData} setFinishRidePanel={setFinishRidePanel} />
-            </div>
+            {/* ✅ Show tick icon after completion */}
+            {rideCompleted && (
+              <div className="ride-complete-tick">
+                <div className="tick-circle">
+                  <FiCheck className="tick-icon" />
+                </div>
+                <p className="tick-text">Ride Completed</p>
+                <button 
+                onClick={handleClick}
+                className='back-home'>Home</button>
+              </div>
+            )}
           </div>
 
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CaptainRiding
+export default CaptainRiding;

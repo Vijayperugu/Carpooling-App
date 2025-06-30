@@ -12,7 +12,7 @@ export const createRide = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
-//start Ride and otp verification
+// //start Ride and otp verification
 
 export const startRide = async (req, res) => {
   const { rideId, otp } = req.body;
@@ -76,18 +76,18 @@ export const updateRide = async (req, res) => {
   }
 };
 
-// Delete a ride
-export const deleteRide = async (req, res) => {
-  try {
-    const ride = await Ride.findByIdAndDelete(req.params.id);
-    if (!ride) {
-      return res.status(404).json({ success: false, message: "Ride not found" });
-    }
-    res.json({ success: true, message: "Ride deleted" });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
-  }
-};
+// // Delete a ride
+// export const deleteRide = async (req, res) => {
+//   try {
+//     const ride = await Ride.findByIdAndDelete(req.params.id);
+//     if (!ride) {
+//       return res.status(404).json({ success: false, message: "Ride not found" });
+//     }
+//     res.json({ success: true, message: "Ride deleted" });
+//   } catch (error) {
+//     res.status(500).json({ success: false, message: error.message });
+//   }
+// };
 
 
 export const confirmRideByCaptain = async (req, res) => {
@@ -137,13 +137,18 @@ export const setRideToRiding = async (req, res) => {
 export const setRideToCompleted = async (req, res) => {
   try {
     const { rideId } = req.body;
-    const ride = await Ride.findByIdAndUpdate(
-      rideId,
-      { status: "completed" },
-      { new: true }
-    ).populate("user", "name").populate("captain");
-    if (!ride) return res.status(404).json({ success: false, message: "Ride not found" });
-    // Optionally emit socket event here
+    const ride = await Ride.findById(rideId);
+    if (!ride) {
+      return res.status(404).json({ success: false, message: "Ride not found" });
+    }
+    ride.status = "completed";
+    await ride.save();
+
+    // Emit socket event if needed
+    const io = req.app.get("io");
+    io.to(ride.user.toString()).emit("rideCompleted", ride);
+    io.to(ride.captain.toString()).emit("rideCompleted", ride);
+
     res.json({ success: true, ride });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
