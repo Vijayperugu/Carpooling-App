@@ -7,12 +7,15 @@ const Riding = () => {
   const { ride } = location.state || {}
   const navigate = useNavigate()
 
-  // Optional: Socket event to redirect after ride ends
-  // useEffect(() => {
-  //   socket.on("ride-ended", () => {
-  //     navigate('/home')
-  //   });
-  // }, []);
+  // Extract captain and vehicle info safely
+  const captain = ride.captain || {};
+  const captainName = (captain.firstName && captain.lastName)
+    ? `${captain.firstName} ${captain.lastName}`
+    : (captain.name || "Captain");
+  const vehicleNumber = captain.vehicleDetails?.plate || captain.vehicleNumber || "N/A";
+  const vehicleModel = captain.vehicleDetails?.model || "Maruti Suzuki Alto";
+  const dropAddress = ride.destination || "Unknown";
+  const fare = ride.fare || "0.00";
 
   return (
     <div className="riding-wrapper">
@@ -34,7 +37,7 @@ const Riding = () => {
             </Link>
 
             <div className="info-section">
-              {/* Driver Info */}
+              {/* Captain Info */}
               <div className="driver-info">
                 <img
                   className="vehicle-image"
@@ -42,9 +45,9 @@ const Riding = () => {
                   alt="Vehicle"
                 />
                 <div className="driver-text">
-                  <h2 className="driver-name">{ride?.captain?.fullname?.firstname || "Captain"}</h2>
-                  <h4 className="vehicle-plate">{ride?.captain?.vehicle?.plate || "AP09AB1234"}</h4>
-                  <p className="vehicle-model">Maruti Suzuki Alto</p>
+                  <h2 className="driver-name">{captainName}</h2>
+                  <h4 className="vehicle-plate">{vehicleNumber}</h4>
+                  <p className="vehicle-model">{vehicleModel}</p>
                 </div>
               </div>
 
@@ -54,14 +57,14 @@ const Riding = () => {
                   <i className="icon ri-map-pin-2-fill"></i>
                   <div>
                     <h3 className="address-title">Drop Location</h3>
-                    <p className="address-detail">{ride?.destination || "Unknown"}</p>
+                    <p className="address-detail">{dropAddress}</p>
                   </div>
                 </div>
 
                 <div className="ride-detail-item">
                   <i className="icon ri-currency-line"></i>
                   <div>
-                    <h3 className="fare-amount">₹{ride?.fare || "0.00"}</h3>
+                    <h3 className="fare-amount">₹{fare}</h3>
                     <p className="payment-mode">Cash Payment</p>
                   </div>
                 </div>

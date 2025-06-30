@@ -9,10 +9,12 @@ import WaitingForDriver from '../components/WaitingForDriver';
 import ConfirmRide from '../components/ConfirmRide';
 import LookingForDriver from '../components/LookingForDriver';
 import { io } from 'socket.io-client';
+import { useNavigate } from 'react-router-dom';
  const socket = io('http://localhost:4000'); 
 
 
 const Home = () => {
+  const navigate = useNavigate();
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
   const [panelOpen, setPanelOpen] = useState(false);
@@ -42,8 +44,14 @@ const Home = () => {
     setVehicleFound(false);
     setWaitingForDriver(true);
   });
+  socket.on('rideStarted', (ride) => {
+    navigate('/riding' ,{ state: { ride } });
+  });
+
+
   return () => {
     socket.off('rideConfirmed');
+    socket.off('rideStarted');
   };
 }, []);
 

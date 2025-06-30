@@ -17,11 +17,20 @@ export const createRide = async (req, res) => {
 export const startRide = async (req, res) => {
   const { rideId, otp } = req.body;
   try {
-    const ride = await Ride.findById(rideId).select('+otp').populate("user", "name");
+    const ride = await Ride.findById(rideId).select('+otp').populate("user", "name").populate("captain");
     if (!ride) return res.status(404).json({ success: false, message: "Ride not found" });
     if (ride.otp !== otp) return res.json({ success: false, message: "Invalid OTP" });
-    ride.status = "accepted";
+
+    ride.status = "riding";
     await ride.save();
+
+    // Emit to both user and captain
+    const io = req.app.get("io");
+    io.to(ride.user._id.toString()).emit("rideStarted", ride);
+    if (ride.captain?._id) {
+      io.to(ride.captain._id.toString()).emit("rideStarted", ride);
+    }
+
     res.json({ success: true, ride });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -98,6 +107,40 @@ export const confirmRideByCaptain = async (req, res) => {
     // Emit to user via socket.io
     req.app.get("io").to(ride.user._id.toString()).emit("rideConfirmed", ride);
 
+    res.json({ success: true, ride });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+
+export const setRideToRiding = async (req, res) => {
+  try {
+    const { rideId } = req.body;
+    const ride = await Ride.findByIdAndUpdate(
+      rideId,
+      { status: "riding" },
+      { new: true }
+    ).populate("user", "name").populate("captain");
+    if (!ride) return res.status(404).json({ success: false, message: "Ride not found" });
+    // Optionally emit socket event here
+    res.json({ success: true, ride });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+
+export const setRideToCompleted = async (req, res) => {
+  try {
+    const { rideId } = req.body;
+    const ride = await Ride.findByIdAndUpdate(
+      rideId,
+      { status: "completed" },
+      { new: true }
+    ).populate("user", "name").populate("captain");
+    if (!ride) return res.status(404).json({ success: false, message: "Ride not found" });
+    // Optionally emit socket event here
     res.json({ success: true, ride });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

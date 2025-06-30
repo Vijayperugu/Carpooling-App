@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, use } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CaptainDetails from '../components/CaptainDetails';
 import RidePopUp from '../components/RidePopUp';
 import ConfirmRidePopUp from '../components/ConfirmRidePopUp';
@@ -11,6 +11,7 @@ import '../styles/CaptainHome.css';
 const SOCKET_URL = 'http://localhost:4000';
 
 const CaptainHome = () => {
+  const navigate = useNavigate();
   const [ridePopupPanel, setRidePopupPanel] = useState(false);
   const [confirmRidePopupPanel, setConfirmRidePopupPanel] = useState(false);
   const [ride, setRide] = useState(null);
@@ -18,10 +19,23 @@ const CaptainHome = () => {
 
   useEffect(() => {
     const socket = io(SOCKET_URL);
+    const captainId = localStorage.getItem('captainId');
+    if (captainId) {
+      socket.emit('joinRoom', captainId);
+    }
     socket.on('newRide', (newRide) => {
       setRide(newRide);
       setRidePopupPanel(true);
     });
+    socket.on('rideStarted', (ride) => {
+       console.log('rideStarted event received', ride); // Add this line
+      navigate('/captainRiding', { state: { ride } });
+    });
+    return () => {
+      socket.off('newRide');
+      socket.off('rideStarted');
+
+    }
   }, []);
 
   const handleAcceptRide = async () => {

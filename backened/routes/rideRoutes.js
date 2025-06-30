@@ -6,16 +6,21 @@ import {
   updateRide,
   deleteRide,
   startRide,
-  confirmRideByCaptain
+  confirmRideByCaptain,
+  setRideToRiding,
+  setRideToCompleted
 } from "../controllers/rideControllers.js";
 
 const router = express.Router();
 
-router.post("/", createRide);           // Create a ride
-router.get("/", getAllRides);           // Get all rides
-router.get("/:id", getRideById);        // Get ride by ID
-router.put("/:id", updateRide);         // Update ride
+router.post("/", createRide);          
+router.get("/", getAllRides);         
+router.get("/:id", getRideById);        
+router.put("/:id", updateRide);         
 router.delete("/:id", deleteRide); 
 router.post('/start-ride', startRide); 
 router.post("/confirm", confirmRideByCaptain); 
+router.post('/set-riding',setRideToRiding);
+router.post('/set-completed',setRideToCompleted);
+
 export default router;

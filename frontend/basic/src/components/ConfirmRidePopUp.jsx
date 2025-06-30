@@ -19,8 +19,7 @@ const ConfirmRidePopUp = (props) => {
         }
       );
       if (response.data.success) {
-        // Hide this popup and show captain details (parent handles this)
-        navigate('/captainHome');
+        // OTP verification successful, ride started
         props.setConfirmRidePopupPanel(false);
         // props.showCaptainDetailsPanel(true);
       } else {
