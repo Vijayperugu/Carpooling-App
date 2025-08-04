@@ -6,6 +6,8 @@ import captainRoutes from "./routes/captainRoutes.js"
 import rideRoutes from "./routes/rideRoutes.js";
 import { Server} from 'socket.io';
 import {createServer} from 'http';
+import dotenv from 'dotenv';
+dotenv.config();
 
  const app = express();
 const server = createServer(app);
@@ -23,7 +25,7 @@ io.on("connection", (socket) => {
 });
 
 app.set("io",io);
- const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
  connectDB();
 
  app.use(cors())
