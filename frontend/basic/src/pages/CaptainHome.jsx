@@ -41,7 +41,7 @@ const CaptainHome = () => {
   const handleAcceptRide = async () => {
     try {
       const captainId = localStorage.getItem('captainId');
-      const res = await axios.put(`http://localhost:4000/api/rides/${ride._id}`, {
+      const res = await axios.put(`https://carpooling-app-vh4t.onrender.com/api/rides/${ride._id}`, {
         status: 'accepted',
         captain: captainId,
       });

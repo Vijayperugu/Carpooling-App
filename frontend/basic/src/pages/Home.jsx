@@ -10,7 +10,7 @@ import ConfirmRide from '../components/ConfirmRide';
 import LookingForDriver from '../components/LookingForDriver';
 import { io } from 'socket.io-client';
 import { useNavigate } from 'react-router-dom';
- const socket = io('http://localhost:4000'); 
+ const socket = io('https://carpooling-app-vh4t.onrender.com'); 
 
 
 const Home = () => {

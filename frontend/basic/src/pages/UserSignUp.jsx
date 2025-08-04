@@ -14,7 +14,7 @@ const UserSignUp = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/api/user/register", {
+      const response = await axios.post("https://carpooling-app-vh4t.onrender.com/api/user/register", {
         name,
         email,
         password

@@ -12,7 +12,7 @@ const ConfirmRidePopUp = (props) => {
     try {
       // Call your backend to verify OTP and start the ride
       const response = await axios.post(
-        'http://localhost:4000/api/rides/start-ride',
+        'https://carpooling-app-vh4t.onrender.com/api/rides/start-ride',
         {
           rideId: props.ride._id,
           otp: otp

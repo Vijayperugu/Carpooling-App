@@ -12,7 +12,7 @@ const CaptainLogin = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/api/captain/login',{
+            const response = await axios.post('https://carpooling-app-vh4t.onrender.com/api/captain/login',{
             email,
             password
         })

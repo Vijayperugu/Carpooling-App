@@ -9,7 +9,7 @@ const RidePopUp = (props) => {
   const handleConfirm = async () => {
     const captainId = localStorage.getItem('captainId');
     try{
-      const res = await axios.post("http://localhost:4000/api/rides/confirm",{
+      const res = await axios.post("https://carpooling-app-vh4t.onrender.com/api/rides/confirm",{
         rideId: props.ride._id,
         captainId
       });

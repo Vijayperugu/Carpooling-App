@@ -19,7 +19,7 @@ const ConfirmRide = (props) => {
       };
       console.log("Ride Data:", rideData);
       
-      const response = await axios.post('http://localhost:4000/api/rides',rideData);
+      const response = await axios.post('https://carpooling-app-vh4t.onrender.com/api/rides',rideData);
       if(response.data.success){
         props.setVehicleFound(true);
         props.setConfirmRidePanel(false);

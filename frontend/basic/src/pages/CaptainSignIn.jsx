@@ -21,7 +21,7 @@ const CaptainSignIn = () => {
   const submitHandler = async (e) => {
     try {
       e.preventDefault()
-    const response = await axios.post('http://localhost:4000/api/captain/register', {
+    const response = await axios.post('https://carpooling-app-vh4t.onrender.com/api/captain/register', {
       firstName,
         lastName,
         email,
