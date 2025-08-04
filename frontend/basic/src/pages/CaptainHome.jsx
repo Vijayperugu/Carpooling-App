@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 
 import '../styles/CaptainHome.css';
 
-const SOCKET_URL = 'http://localhost:4000';
+const SOCKET_URL = 'https://carpooling-app-vh4t.onrender.com';
 
 const CaptainHome = () => {
   const navigate = useNavigate();
@@ -18,7 +18,9 @@ const CaptainHome = () => {
   const [captainLocation, setCaptainLocation] = useState();
 
   useEffect(() => {
-    const socket = io(SOCKET_URL);
+    const socket = io(SOCKET_URL,{
+      transports: ['websocket']
+    });
     const captainId = localStorage.getItem('captainId');
     if (captainId) {
       socket.emit('joinRoom', captainId);

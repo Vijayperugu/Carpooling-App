@@ -22,7 +22,7 @@ const UserSignUp = ({ setToken }) => {
 
       if (response.data.success) {
         // setToken(response.data.token);
-        localStorage.setItem("userId", response.data.userId);
+        localStorage.setItem("userId", response.data.user._d);
         navigate('/Home')
       } else {
         alert("Signup failed, please try again");
